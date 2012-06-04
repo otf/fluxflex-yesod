@@ -17,4 +17,4 @@ cabal-version:       >=1.8
 executable fluxflex-yesod
   -- main-is:             
   -- other-modules:       
-  build-depends:       base ==4.5.*, yesod ==1.0.*, warp ==1.2.*
+  build-depends:       base ==*.*.*, yesod ==1.0.*, warp ==1.2.*
