@@ -1,7 +1,7 @@
 {-# LANGUAGE OverloadedStrings, MultiParamTypeClasses, TypeFamilies, TemplateHaskell, QuasiQuotes #-}
 module Main (main) where
 import Yesod
-import Network.Wai.Handler.FastCGI (run)
+import Network.Wai.Handler.Warp (run)
 
 data Fluxflex = Fluxflex
 
@@ -10,12 +10,9 @@ mkYesod "Fluxflex" [parseRoutes|
 |]
 
 instance Yesod Fluxflex where
-  approot _ = ""
-
-type Handler = GHandler Fluxflex Fluxflex
 
 getHomeR :: Handler RepHtml
-getHomeR = defaultLayout [hamlet|Hello, Yesod!|]
+getHomeR = defaultLayout [whamlet|Hello, Yesod!|]
 
 main :: IO ()
-main = toWaiApp Fluxflex >>= run
+main = warp 80 Fluxflex 
