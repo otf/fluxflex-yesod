@@ -3,8 +3,7 @@ rm -rf .cabal
 
 [deploy]
 /usr/local/cabal/bin/cabal update
+/usr/local/cabal/bin/cabal install yesod
 /usr/local/cabal/bin/cabal clean
 /usr/local/cabal/bin/cabal configure
 /usr/local/cabal/bin/cabal build
-cp -v .cabal/bin/fluxflex-yesod public_html/dispatch.fcgi
-chmod -v 705 public_html/dispatch.fcgi
